@@ -5,6 +5,7 @@
 #include "Engine/Texture2D.h"
 #include "TextureResource.h"
 #include "CanvasItem.h"
+#include "UI/MainMenuWD.h"
 #include "UObject/ConstructorHelpers.h"
 
 AFPSHUD::AFPSHUD()
@@ -14,6 +15,29 @@ AFPSHUD::AFPSHUD()
 	CrosshairTex = CrosshairTexObj.Object;
 }
 
+void AFPSHUD::BeginPlay()
+{
+    Super::BeginPlay();
+    
+    if(APlayerController *PC = Cast<APlayerController>(PlayerOwner))
+    {
+       UE_LOG(LogTemp, Log, TEXT("Got Player controller reference"))
+        
+        if(ProgressBarClass)
+        {
+            UE_LOG(LogTemp, Log, TEXT("Adding progress bar to the view port"))
+            ProgressBar = CreateWidget<UMainMenuWD>(PC, ProgressBarClass);
+            ProgressBar->UpdateHealth(80);
+            ProgressBar->AddToViewport();
+            ProgressBar->SetVisibility(ESlateVisibility::Visible);
+        }
+    }
+}
+
+void AFPSHUD::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+}
 
 void AFPSHUD::DrawHUD()
 {

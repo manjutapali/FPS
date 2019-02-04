@@ -13,10 +13,22 @@ class AFPSHUD : public AHUD
 
 public:
 	AFPSHUD();
-
+    
 	/** Primary draw call for the HUD */
 	virtual void DrawHUD() override;
-
+    
+    virtual void BeginPlay() override;
+    
+    virtual void Tick(float InDeltaTime) override;
+    
+protected:
+    
+    UPROPERTY(EditAnywhere, Category = "ProgressBar")
+    TSubclassOf<class UMainMenuWD> ProgressBarClass;
+    
+    UPROPERTY(BlueprintReadOnly, Category = "ProgressBar")
+    class UMainMenuWD* ProgressBar;
+    
 private:
 	/** Crosshair asset pointer */
 	class UTexture2D* CrosshairTex;
