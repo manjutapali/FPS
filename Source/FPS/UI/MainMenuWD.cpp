@@ -6,5 +6,5 @@
 
 void UMainMenuWD::UpdateHealth(float health)
 {
-    healthBar->SetPercent(health);
+    //healthBar->SetPercent(health);
 }

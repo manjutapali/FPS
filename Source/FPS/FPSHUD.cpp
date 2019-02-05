@@ -21,8 +21,8 @@ void AFPSHUD::BeginPlay()
     
     if(APlayerController *PC = Cast<APlayerController>(PlayerOwner))
     {
-       UE_LOG(LogTemp, Log, TEXT("Got Player controller reference"))
-        
+        UE_LOG(LogTemp, Log, TEXT("Got Player controller reference"))
+        // UE_LOG(LogTemp, Log, TEXT("Progress bar class %s"), ProgressBarClass->GetDefaultObjectName())
         if(ProgressBarClass)
         {
             UE_LOG(LogTemp, Log, TEXT("Adding progress bar to the view port"))

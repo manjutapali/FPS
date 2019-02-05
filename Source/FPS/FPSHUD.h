@@ -23,7 +23,7 @@ public:
     
 protected:
     
-    UPROPERTY(EditAnywhere, Category = "ProgressBar")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ProgressBar")
     TSubclassOf<class UMainMenuWD> ProgressBarClass;
     
     UPROPERTY(BlueprintReadOnly, Category = "ProgressBar")
